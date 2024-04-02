@@ -1,0 +1,101 @@
+<div class="card-body" *ngIf="ingresoEsValido">
+  <div class="container-fluid">
+    <form class="needs-validation" novalidate [formGroup]="procForm">
+      <div class="row mt-3 mb-3">
+        <div class="col ms-2">
+          <h5>Procedimientos Anestesia</h5>
+        </div>
+      </div>
+      <div class="row container-fluid">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-xl-10 col-lg-9 col-md-8 pb-2">
+              <label for="validationTooltip04" class="form-label mb-0"
+                ><b>Procedimientos:</b></label
+              >
+              <select
+                class="form-select form-select-lg mt-2"
+                id="validationTooltip04"
+                required
+                formControlName="procValor"
+              >
+                <option></option>
+                <option>fdgdgdf</option>
+              </select>
+
+              <div
+                class="invalid-feedback d-block"
+                id="validationTooltip04"
+                *ngIf="!isFormSubmited"
+              >
+                El campo Procedimientos es necesario
+              </div>
+            </div>
+            <div class="needs-validation col-xl-2 col-lg-3 col-md-4 pb-2 pe-2">
+              <label for="cobrable" class="me-3"><b>Cobrable:</b></label>
+              <select
+                class="form-select form-select-lg obligatorio mt-2"
+                name="cobrable"
+                formControlName="cobroValor"
+                required
+              >
+                <option></option>
+                <option>Si</option>
+                <option>No</option>
+              </select>
+              <div class="invalid-feedback d-block" *ngIf="!isFormSubmit">
+                El campo Cobrable es necesario
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row container-fluid">
+        <div class="col-12 pb-2 mt-3 mb-3">
+          <div>
+            <label><b>Descripción:</b></label>
+            <textarea
+              class="form-control"
+              name="descripcion"
+              formControlName="procValor"
+              style="height: 200px"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="card-footer text-muted fixed-bottom bg-light">
+    <div class="row justify-content-end">
+      <div class="col-auto">
+        <button
+          id="procedimientosModal"
+          type="button"
+          (click)="onSubmit()"
+          class="form-control-sm btn btn-danger btn-sm ms-2"
+          tabindex="3"
+          accesskey="G"
+        >
+          <u><b>G</b></u
+          >uardar
+        </button>
+        <button
+          id="btnEvoluciones"
+          type="button"
+          (click)="onLimpiar()"
+          class="btn btn-secondary btn-sm ms-2"
+          tabindex="1"
+          accesskey="L"
+        >
+          <u><b>L</b></u
+          >impiar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-proc *ngIf="validacionModal" (OutProcModal)="close($event)" />
+<app-modal-saved *ngIf="guardarModal" (OutSavedModal)="close($event)" />

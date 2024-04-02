@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <div class="card mt-2">
+    <app-ingreso
+      (OutValidacionModal)="onGetValidacionModal($event)"
+      (OutIngresoValido)="onGetIngresoValido($event)"
+    />
+    <app-procedimientos [ingresoEsValido]="ingresoValido" />
+  </div>
+</div>

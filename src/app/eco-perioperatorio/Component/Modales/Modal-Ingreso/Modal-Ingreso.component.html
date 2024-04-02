@@ -1,0 +1,34 @@
+<div
+  #ingresoModal
+  class="modal fade show"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  style="display: block; background-color: rgba(0, 0, 0, 0.364)"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Alerta</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="close()"
+        ></button>
+      </div>
+      <div class="modal-body">Hay errores en la validación de ingreso</div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="close()"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
