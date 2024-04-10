@@ -12,6 +12,8 @@ export class IngresoService {
   constructor(private http: HttpClient) {}
 
   obtenerIngreso(): Observable<any> {
-    return this.http.get(`${this.url}cups/list?token=${this.token}`);
+    return this.http.get(
+      `${this.url}paciente/listarActivos?token=${this.token}`
+    );
   }
 }

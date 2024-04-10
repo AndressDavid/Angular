@@ -12,6 +12,6 @@ export class ProcedimientosService {
   constructor(private http: HttpClient) {}
 
   obtenerListaProcedimientos(): Observable<any> {
-    return this.http.get(`${this.url}cups/list?token=${this.token}`);
+    return this.http.get(`${this.url}dietas/list?token=${this.token}`);
   }
 }

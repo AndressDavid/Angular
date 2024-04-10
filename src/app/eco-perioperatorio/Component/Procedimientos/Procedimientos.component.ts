@@ -10,6 +10,7 @@ import { ProcedimientosService } from './Servicios-Proc/Procedimientos.service';
 import { Iprocedimientos } from './Interfaces-Proc/Iprocedimientos';
 import { ModalProcComponent } from '../Modales/Modal-Proc/Modal-Proc.component';
 import { ModalSavedComponent } from '../Modales/Modal-Saved/Modal-Saved.component';
+import { ModalLimpiarComponent } from '../Modales/Modal-Limpiar/modal-limpiar/modal-limpiar.component';
 
 @Component({
   selector: 'app-procedimientos',
@@ -20,6 +21,7 @@ import { ModalSavedComponent } from '../Modales/Modal-Saved/Modal-Saved.componen
     ReactiveFormsModule,
     ModalProcComponent,
     ModalSavedComponent,
+    ModalLimpiarComponent,
   ],
   templateUrl: './Procedimientos.component.html',
   styleUrl: './Procedimientos.component.css',
@@ -53,6 +55,7 @@ export class ProcedimientosComponent implements OnInit {
   }
 
   @Input() ingresoEsValido?: boolean = false;
+  @Input() ingresoNoEsValido?: boolean = true;
 
   public isFormSubmited: boolean = true;
   public isFormSubmit: boolean = true;
@@ -63,9 +66,13 @@ export class ProcedimientosComponent implements OnInit {
   public guardarModal: boolean = false;
   @Output() OutSavedModal: EventEmitter<boolean> = new EventEmitter();
 
+  public limpiarModal: boolean = false;
+  @Output() OutCleanModal: EventEmitter<boolean> = new EventEmitter();
+
   close(event: boolean) {
     this.validacionModal = event;
     this.guardarModal = event;
+    this.limpiarModal = event;
   }
 
   public procForm = new FormGroup({
@@ -101,6 +108,10 @@ export class ProcedimientosComponent implements OnInit {
   }
   onLimpiar() {
     this.procForm.reset();
+    this.limpiarModal = true;
+
+    this.OutCleanModal.emit(this.limpiarModal);
+
     return false;
   }
 }

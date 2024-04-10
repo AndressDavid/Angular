@@ -3,7 +3,12 @@
     <app-ingreso
       (OutValidacionModal)="onGetValidacionModal($event)"
       (OutIngresoValido)="onGetIngresoValido($event)"
+      (OutIngresoNoValido)="onGetIngresoNoValido($event)"
+      (OutIngresoCabeceraValido)="onGetIngresoCabeceraValido($event)"
     />
-    <app-procedimientos [ingresoEsValido]="ingresoValido" />
+    <app-procedimientos
+      [ingresoEsValido]="ingresoValido"
+      [ingresoNoEsValido]="ingresoNoValido"
+    />
   </div>
 </div>

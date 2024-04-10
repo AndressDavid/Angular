@@ -1,4 +1,4 @@
 export interface Iprocedimientos {
-  cup: string;
-  description: string;
+  codigo: string;
+  descripcion: string;
 }
